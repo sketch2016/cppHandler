@@ -31,7 +31,7 @@ void Handler::sendMessageDelayed(Message *msg, long delay /*ms*/) {
 void Handler::sendMessageAtTime(Message *msg, long time) {
     qDebug()<<"sendMessageAtTime: msg.what="<<QString::number(msg->what)<<" msg.when="<<time<< " in thread " << QThread::currentThreadId();;
     msg->when = time;
-    if (msg->target != nullptr) {
+    if (msg->target == nullptr) {
         msg->target = this;
     }
 
